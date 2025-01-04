@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
+import Layout from "../_components/Layout";
+
 import LazyMotionProvider from "@/components/LazyMotionProvider";
 import TanstackQueryClientProvider from "@/components/TanstackQueryClientProvider";
-import "./globals.css";
+
+import "../globals.css";
 
 const pretendard = localFont({
-  src: "../../public/fonts/PretendardVariable.woff2",
+  src: "../PretendardVariable.woff2",
   display: "swap",
   weight: "45 920",
   variable: "--font-pretendard",
@@ -26,7 +29,9 @@ export default function RootLayout({
     <html lang="ko">
       <TanstackQueryClientProvider>
         <LazyMotionProvider>
-          <body className={`${pretendard.variable} antialiased`}>{children}</body>
+          <body className={`${pretendard.variable} font-sans antialiased`}>
+            <Layout>{children}</Layout>
+          </body>
         </LazyMotionProvider>
       </TanstackQueryClientProvider>
     </html>
