@@ -4,7 +4,7 @@ import CTA from ".";
 
 const FixedBottomCTA = (props: ComponentProps<typeof CTA>) => {
   return (
-    <div className="fixed bottom-0 w-full max-w-3xl p-4">
+    <div className="fixed bottom-0 w-full max-w-screen-sm p-4">
       <CTA {...props} />
     </div>
   );
