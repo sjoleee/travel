@@ -61,3 +61,14 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scaleX(1.07) scaleY(1.6);
+    opacity: 0;
+  }
+}
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}

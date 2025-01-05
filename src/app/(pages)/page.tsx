@@ -35,7 +35,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 h-16 w-full max-w-screen-sm border-b border-gray-100 bg-white p-4">
       <div className="flex h-full flex-col justify-center">
         <h1 className="text-lg font-bold">인천 - 오사카</h1>
-        <span className="text-sm text-gray-500">01.05.일 - 01.08.수 | 성인 2명</span>
+        <span className="text-sm text-gray-500">01.05.일 - 01.08.수 | 성인 2명, 유아 1명</span>
       </div>
     </header>
   );
@@ -43,13 +43,25 @@ const Header = () => {
 
 type ItemProps = ComponentProps<typeof Button> & 항공편Type;
 
-const Item = ({ className, 항공사명, 결제수단, 최저가격, 가는편, 오는편, ...props }: ItemProps) => {
+const Item = ({
+  className,
+  항공사명,
+  결제수단,
+  최저가격,
+  가는편,
+  오는편,
+  탑승객,
+  좌석등급,
+  ...props
+}: ItemProps) => {
   const 항공편Data = {
     항공사명,
     결제수단,
     최저가격,
     가는편,
     오는편,
+    탑승객,
+    좌석등급,
   };
 
   return (
