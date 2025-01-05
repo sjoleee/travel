@@ -22,9 +22,11 @@ export default function Home() {
         </Button>
       </div>
       <div className="flex flex-col gap-2 p-4">
-        {항공편MOCK.map((item, index) => (
-          <Item key={index} {...item} />
-        ))}
+        {항공편MOCK
+          .sort((a, b) => a.최저가격 - b.최저가격)
+          .map((item, index) => (
+            <Item key={index} {...item} />
+          ))}
       </div>
     </>
   );

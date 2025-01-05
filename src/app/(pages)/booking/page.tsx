@@ -123,11 +123,8 @@ function BookingPage() {
             <BottomCTA
               onClick={() => {
                 checkAll();
-
-                setTimeout(() => {
-                  setOpenDrawer(false);
-                  router.push("/booking/complete");
-                }, 500);
+                setOpenDrawer(false);
+                router.push("/booking/complete");
               }}
             >
               모두 동의하고 예약하기
