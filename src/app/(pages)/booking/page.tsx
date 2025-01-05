@@ -64,7 +64,7 @@ function BookingPage() {
         />
 
         {showFunnel && (
-          <Funnel onComplete={() => setOpenDrawer(true)}>
+          <Funnel>
             <FunnelItem step={0}>
               <ReservationSection onValidChange={(isValid) => setPingCTA(isValid)} />
             </FunnelItem>
@@ -73,8 +73,18 @@ function BookingPage() {
             </FunnelItem>
 
             <FunnelController>
-              {({ next }) => (
-                <BottomCTA ping={pingCTA} onClick={next} disabled={!pingCTA}>
+              {({ next, currentStep, totalSteps }) => (
+                <BottomCTA
+                  ping={pingCTA}
+                  onClick={() => {
+                    if (currentStep === totalSteps - 1) {
+                      setOpenDrawer(true);
+                    } else {
+                      next();
+                    }
+                  }}
+                  disabled={!pingCTA}
+                >
                   다음
                 </BottomCTA>
               )}

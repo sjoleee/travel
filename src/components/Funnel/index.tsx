@@ -15,6 +15,7 @@ interface FunnelContextProps {
   next: () => void;
   prev: () => void;
   go: (step: number) => void;
+  totalSteps: number;
 }
 
 const FunnelContext = createContext<FunnelContextProps | null>(null);
@@ -46,7 +47,7 @@ export const Funnel = ({ initialStep = 0, children, onComplete }: FunnelProps) =
   const go = (step: number) => setCurrentStep(step);
 
   return (
-    <FunnelContext.Provider value={{ currentStep, next, prev, go }}>
+    <FunnelContext.Provider value={{ currentStep, next, prev, go, totalSteps }}>
       {children}
     </FunnelContext.Provider>
   );
@@ -105,9 +106,13 @@ export const FunnelController = ({
 }: {
   children: ReactNode | ((props: FunnelContextProps) => ReactNode);
 }) => {
-  const { currentStep, next, prev, go } = useFunnel();
+  const { currentStep, next, prev, go, totalSteps } = useFunnel();
 
   return (
-    <>{typeof children === "function" ? children({ currentStep, next, prev, go }) : children}</>
+    <>
+      {typeof children === "function"
+        ? children({ currentStep, next, prev, go, totalSteps })
+        : children}
+    </>
   );
 };
