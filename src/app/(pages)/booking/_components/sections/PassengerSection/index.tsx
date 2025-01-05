@@ -80,7 +80,7 @@ const PassengerItem = ({
         {type} {index + 1}{" "}
         {status && (
           <m.span
-            className="ml-2 rounded-full bg-blue-500 px-2 py-1 text-xs text-white"
+            className="ml-2 rounded-full bg-rose-500 px-2 py-1 text-xs text-white"
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
