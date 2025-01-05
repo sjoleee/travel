@@ -115,6 +115,9 @@ const PassengerItem = ({
               <Camera className="size-4" />
               카메라로 여권 스캔
             </Button>
+            <Button variant="secondary" onClick={onComplete}>
+              이전 예약에서 불러오기
+            </Button>
             <Button
               className="bg-yellow-300 text-black hover:bg-yellow-400 active:bg-yellow-400"
               onClick={onComplete}
