@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 import Title from "./_components/Title";
 import PassengerSection from "./_components/sections/PassengerSection";
@@ -23,7 +23,15 @@ import { Funnel, FunnelController, FunnelItem } from "@/components/Funnel";
 import { type 항공편Type } from "@/types";
 import cn from "@/utils/cn";
 
-export default function BookingPage() {
+export default function Booking() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <BookingPage />
+    </Suspense>
+  );
+}
+
+function BookingPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const flightParam = searchParams.get("flight");
