@@ -104,9 +104,14 @@ const PassengerItem = ({
             className="flex flex-col gap-2"
           >
             <Button
-              className="bg-gray-300 text-black hover:bg-gray-400 active:bg-gray-400"
+              className="relative bg-gray-300 text-black hover:bg-gray-400 active:bg-gray-400"
               onClick={onComplete}
             >
+              <input
+                type="file"
+                capture="environment"
+                className="absolute left-0 top-0 size-full opacity-0"
+              />
               <Camera className="size-4" />
               카메라로 여권 스캔
             </Button>
